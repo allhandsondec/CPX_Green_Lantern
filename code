@@ -1,0 +1,24 @@
+let level = 0
+input.onGesture(Gesture.ThreeG, function () {
+    doSomething()
+})
+function doSomething() {
+    for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 100; i++) {
+            light.pixels.setBrightness(level += 2)
+            light.pixels.setAll(Colors.Green)
+            loops.pause(100)
+        }
+        for (let i = 0; i < 100; i++) {
+            light.pixels.setBrightness(level -= 2)
+            light.pixels.setAll(Colors.Green)
+            loops.pause(50)
+        }
+        loops.pause(100)
+        level = 0
+    }
+}
+input.buttonA.onEvent(ButtonEvent.Click, function () {
+    doSomething()
+})
+level = 0
